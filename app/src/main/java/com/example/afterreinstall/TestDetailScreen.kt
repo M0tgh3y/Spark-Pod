@@ -1,5 +1,7 @@
 package com.example.afterreinstall
 
+import android.util.Log
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -24,11 +26,16 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Android
 import androidx.compose.material.icons.filled.DensityMedium
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.SuggestionChip
+import androidx.compose.material3.SuggestionChipDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -47,7 +54,7 @@ import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun TestDetailScreen(navController: NavHostController) {
+fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
     val scrollState = rememberScrollState()
     Box(
         modifier = Modifier
@@ -55,53 +62,60 @@ fun TestDetailScreen(navController: NavHostController) {
             .verticalScroll(scrollState),
         contentAlignment = Alignment.TopCenter
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.pic1),
-            contentDescription = "",
-            modifier = Modifier.height(300.dp),
-            contentScale = ContentScale.FillHeight
-        )
-
         Column (
-            modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 20.dp),
+            modifier = Modifier.padding(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
+            Card(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color(0xFFCCC2DC),
-                        shape = RoundedCornerShape(30.dp)
-                    )
-                    .padding(start = 20.dp, end = 5.dp)
-                    .height(60.dp)
-            ) {
-                Text(text = "Test 9x4",
-                    style = TextStyle(
-                        fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold
-                    ),
-                    modifier = Modifier.weight(1f)
+                    .fillMaxWidth(),
+                shape = RoundedCornerShape(24.dp),
+                elevation = CardDefaults.cardElevation(8.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color.White
                 )
-
-                IconButton(
-                    onClick = { navController.navigate(Screen.PodSetting.route) }
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.padding(start = 20.dp)
                 ) {
-                    Icon(
-                        imageVector = Icons.Default.Settings,
-                        contentDescription = null,
-                        modifier = Modifier.size(28.dp),
+                    Text(text = "Test 9x4",
+                        style = TextStyle(
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight.Bold
+                        ),
+                        modifier = Modifier.weight(1f)
                     )
+
+                    IconButton(
+                        onClick = { navController.navigate(Screen.PodSetting.route) }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Settings,
+                            contentDescription = null,
+                            modifier = Modifier.size(28.dp),
+                        )
+                    }
                 }
             }
 
-            Spacer(modifier = Modifier.height(230.dp))
+            Spacer(modifier = Modifier.height(15.dp))
+
+            Image(
+                painter = painterResource(id = R.drawable.pic1),
+                contentDescription = "",
+                modifier = Modifier
+                    .height(240.dp)
+                    .clip(RoundedCornerShape(24.dp)),
+                contentScale = ContentScale.FillHeight
+            )
+
+            Spacer(modifier = Modifier.height(15.dp))
 
             Card(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 4.dp),
+                    .fillMaxWidth(),
                 shape = RoundedCornerShape(24.dp),
                 elevation = CardDefaults.cardElevation(8.dp),
                 colors = CardDefaults.cardColors(
@@ -121,12 +135,26 @@ fun TestDetailScreen(navController: NavHostController) {
                     Spacer(modifier = Modifier.height(10.dp))
 
                     Text(
-                        text = "Mark two parallel lines with a distance of 9 meters between them. Place two cones behind the start and finish lines...",
+                        text = "Mark two parallel lines 9 meters apart. Place two cones behind the start and finish lines. The athlete stands behind the starting line. When the start button is pressed, the athlete must run toward the opposite line and touch the cone, then return to the starting point and touch the second cone, and finally return to the starting point again. The athlete covers the 9-meter distance a total of four times, and the completion time is recorded.",
                         fontSize = 17.sp,
                         lineHeight = 20.sp
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
+
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(7.dp)
+                    ) {
+                        chips("Reaction speed")
+                        chips("Coordination")
+                        chips("Endurance")
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Row() {
+
+                    }
 
                     Button(
                         onClick = { navController.navigate(Screen.AfterStart.route) },
@@ -137,16 +165,41 @@ fun TestDetailScreen(navController: NavHostController) {
                     ) {
                         Text("Continue")
                     }
+
+                    Spacer(modifier = Modifier.height(16.dp))
                 }
             }
         }
     }
 }
 
+@Composable
+fun chips(text: String) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = Color.Gray
+        ),
+        shape = RoundedCornerShape(10.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(8.dp)
+                .height(20.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = text,
+                color = Color.White
+            )
+        }
+    }
+}
+
+
 @Preview(showBackground = true)
 @Composable
 fun TestDetailScreenPreview() {
     val navController = rememberNavController()
 
-    TestDetailScreen(navController = navController)
+    TestDetailScreen(navController = navController, onClick = {})
 }

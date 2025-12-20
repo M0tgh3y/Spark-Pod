@@ -24,11 +24,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Android
 import androidx.compose.material.icons.filled.DensityMedium
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -95,33 +98,46 @@ fun TestDetailScreen(navController: NavHostController) {
 
             Spacer(modifier = Modifier.height(230.dp))
 
-            Text(
-                text = "Description:",
-                style = TextStyle(
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.Bold
-                ),
+            Card(
                 modifier = Modifier
                     .fillMaxWidth()
-            )
-
-            Spacer(modifier = Modifier.height(10.dp))
-
-            Text(
-                text = "Mark two parallel lines with a distance of 9 meters between them. Place two cones behind the start and finish lines. The athlete stands behind the starting line.\n" +
-                        "\n" +
-                        "When the start button is pressed, the athlete must run toward the opposite line and touch the cone, then return to the starting point and touch the second cone, and finally return to the starting point again.\n" +
-                        "\n" +
-                        "The athlete covers the 9-meter distance a total of 4 times, and their execution time is recorded.",
-                style = TextStyle(
-                    fontSize = 17.sp,
-                    lineHeight = 20.sp
+                    .padding(horizontal = 4.dp),
+                shape = RoundedCornerShape(24.dp),
+                elevation = CardDefaults.cardElevation(8.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color.White
                 )
-            )
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp)
+                ) {
 
-            Button(
-                onClick = { navController.navigate(Screen.AfterStart.route) }) {
-                Text("Continue")
+                    Text(
+                        text = "Description:",
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    Text(
+                        text = "Mark two parallel lines with a distance of 9 meters between them. Place two cones behind the start and finish lines...",
+                        fontSize = 17.sp,
+                        lineHeight = 20.sp
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Button(
+                        onClick = { navController.navigate(Screen.AfterStart.route) },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp),
+                        shape = RoundedCornerShape(50)
+                    ) {
+                        Text("Continue")
+                    }
+                }
             }
         }
     }

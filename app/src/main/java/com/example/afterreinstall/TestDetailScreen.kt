@@ -127,7 +127,7 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                 ) {
 
                     Text(
-                        text = "Descriptio:",
+                        text = "Description:",
                         fontSize = 22.sp,
                         fontWeight = FontWeight.Bold
                     )

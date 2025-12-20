@@ -20,10 +20,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Android
+import androidx.compose.material.icons.filled.BackHand
 import androidx.compose.material.icons.filled.DensityMedium
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AssistChip
@@ -152,9 +154,9 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
 
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    Row() {
+                    InfoCardsRow()
 
-                    }
+                    Spacer(modifier = Modifier.height(16.dp))
 
                     Button(
                         onClick = { navController.navigate(Screen.AfterStart.route) },
@@ -165,8 +167,6 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                     ) {
                         Text("Continue")
                     }
-
-                    Spacer(modifier = Modifier.height(16.dp))
                 }
             }
         }
@@ -177,7 +177,7 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
 fun chips(text: String) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color.Gray
+            containerColor = Color(0xFF6650a4)
         ),
         shape = RoundedCornerShape(10.dp)
     ) {
@@ -195,6 +195,63 @@ fun chips(text: String) {
     }
 }
 
+@Composable
+fun InfoCardsRow() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Card(
+            modifier = Modifier
+                .weight(1f)
+                .height(80.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFFEFB8C8)
+            )
+        ) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text("Hit")
+            }
+        }
+
+        Card(
+            modifier = Modifier
+                .weight(1f)
+                .height(80.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFFEFB8C8)
+            )
+        ) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text("Color")
+            }
+        }
+
+        Card(
+            modifier = Modifier
+                .weight(1f)
+                .height(80.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFFEFB8C8)
+            )
+        ) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text("Number")
+            }
+        }
+    }
+}
 
 @Preview(showBackground = true)
 @Composable

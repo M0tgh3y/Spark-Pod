@@ -35,7 +35,7 @@ fun NavGraph(navController: NavHostController, modifier: Modifier = Modifier) {
         composable(Screen.List.route) { ListScreen(navController, onClick = {}) }
         composable(Screen.Settings.route) { SettingsScreen() }
         composable(Screen.ChoosePerson.route) { ChoosePersonScreen(navController) }
-        composable(Screen.TestDetail.route) { TestDetailScreen(navController) }
+        composable(Screen.TestDetail.route) { TestDetailScreen(navController, onClick = {}) }
         composable(Screen.AfterStart.route) { AfterStartScreen(navController) }
         composable(Screen.ChoosePod.route) { ChoosePodsScreen() }
         composable(Screen.AddList.route) { AddAListScreen(onClick = {}) }

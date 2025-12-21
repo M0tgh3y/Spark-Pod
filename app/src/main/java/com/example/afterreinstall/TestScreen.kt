@@ -1,5 +1,6 @@
 package com.example.afterreinstall
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,7 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForwardIos
+import androidx.compose.material.icons.automirrored.filled.ArrowForwardIos
 import androidx.compose.material.icons.filled.DensityMedium
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -38,7 +39,8 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 25.dp),
+            .padding(top = 25.dp)
+            .background(color = Color.White),
         contentAlignment = Alignment.TopCenter
     ) {
         Column (
@@ -77,7 +79,8 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
                     containerColor = Color(0xFFACD4D5)
-                )
+                ),
+                shape = RoundedCornerShape(24.dp),
             ) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally
@@ -147,7 +150,7 @@ fun TestButton(test: List<String>, navController: NavHostController, onClick: ()
                         onClick = { onClick() }
                     ) {
                         Icon(
-                            imageVector = Icons.Default.ArrowForwardIos,
+                            imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos,
                             contentDescription = null,
                             modifier = Modifier
                                 .size(20.dp)

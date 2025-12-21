@@ -1,5 +1,6 @@
 package com.example.afterreinstall
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,7 +34,8 @@ fun ListScreen(navController: NavHostController, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 25.dp),
+            .padding(top = 25.dp)
+            .background(color = Color.White),
         contentAlignment = Alignment.TopCenter
     ) {
         Column (
@@ -69,10 +71,23 @@ fun ListScreen(navController: NavHostController, onClick: () -> Unit) {
 
             ClassButton(classes, navController)
 
-            Button(onClick = {
-                navController.navigate(Screen.AddList.route)
-            }) {
-                Text("Create new List")
+            Button(
+                onClick = { navController.navigate(Screen.ChoosePerson.route) },
+                modifier = Modifier
+                    .padding(top = 20.dp, start = 30.dp, end = 30.dp, bottom = 30.dp)
+                    .fillMaxWidth()
+                    .height(60.dp),
+
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF1981C1),
+                    contentColor = Color.Black
+                )) {
+                Text(
+                    text = "Create New List",
+                    style = TextStyle(
+                        fontSize = 20.sp,
+                    )
+                )
             }
         }
     }
@@ -90,7 +105,11 @@ fun ClassButton(classes: List<List<String>>, navController: NavHostController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(90.dp),
-                shape = RoundedCornerShape(10.dp)
+                shape = RoundedCornerShape(24.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFFACD4D5),
+                    contentColor = Color.Black
+                )
             ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically
@@ -108,12 +127,12 @@ fun ClassButton(classes: List<List<String>>, navController: NavHostController) {
                         Text(
                             text = c[1],
                             fontSize = 15.sp,
-                            color = Color.Gray
+                            color = Color(0xFF595050)
                         )
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(14.dp))
+            Spacer(modifier = Modifier.height(20.dp))
         }
     }
 }

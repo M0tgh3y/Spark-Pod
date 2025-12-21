@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForwardIos
 import androidx.compose.material.icons.filled.DensityMedium
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -26,7 +27,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -84,7 +84,7 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
                 ) {
                     Spacer(modifier = Modifier.height(10.dp))
 
-                    TestButton(test, navController)
+                    TestButton(test, navController, onClick)
 
                     Button(
                         onClick = { navController.navigate(Screen.ChoosePerson.route) },
@@ -112,7 +112,7 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
 }
 
 @Composable
-fun TestButton(test: List<String>, navController: NavHostController) {
+fun TestButton(test: List<String>, navController: NavHostController, onClick: () -> Unit) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -120,27 +120,40 @@ fun TestButton(test: List<String>, navController: NavHostController) {
     ) {
         for(t in test) {
             Spacer(modifier = Modifier.height(20.dp))
-
-            Button(
-                onClick = { navController.navigate(Screen.ChoosePerson.route) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(60.dp),
-                shape = RoundedCornerShape(30.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.White,
-                    contentColor = Color.Black
-                )
+            Row(
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    modifier = Modifier.fillMaxWidth(),
-                    text = t,
-                    style = TextStyle(
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Start
+                Button(
+                    onClick = { navController.navigate(Screen.ChoosePerson.route) },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(60.dp),
+                    shape = RoundedCornerShape(30.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.White,
+                        contentColor = Color.Black
                     )
-                )
+                ) {
+                    Text(
+                        modifier = Modifier.weight(1f),
+                        text = t,
+                        style = TextStyle(
+                            fontSize = 22.sp,
+                            fontWeight = FontWeight.Bold,
+                        )
+                    )
+
+                    IconButton(
+                        onClick = { onClick() }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowForwardIos,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .size(20.dp)
+                        )
+                    }
+                }
             }
         }
     }

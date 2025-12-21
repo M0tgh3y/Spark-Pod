@@ -14,17 +14,24 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DensityMedium
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
@@ -35,7 +42,8 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
         contentAlignment = Alignment.TopCenter
     ) {
         Column (
-            modifier = Modifier.padding(start = 25.dp, end = 25.dp),
+            modifier = Modifier
+                .padding(start = 25.dp, end = 25.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -63,14 +71,41 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
                 }
             }
 
-            Spacer(modifier = Modifier.height(50.dp))
+            Spacer(modifier = Modifier.height(30.dp))
 
-            TestButton(test, navController)
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFFACD4D5)
+                )
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Spacer(modifier = Modifier.height(10.dp))
 
-            Button(
-                onClick = { navController.navigate(Screen.ChoosePerson.route) },
-                modifier = Modifier.padding(bottom = 20.dp)) {
-                Text("Add a test")
+                    TestButton(test, navController)
+
+                    Button(
+                        onClick = { navController.navigate(Screen.ChoosePerson.route) },
+                        modifier = Modifier
+                            .padding(top = 20.dp, start = 30.dp, end = 30.dp, bottom = 30.dp)
+                            .fillMaxWidth()
+                            .height(60.dp),
+
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF1981C1),
+                            contentColor = Color.Black
+                        )) {
+                        Text(
+                            text = "Add a Test",
+                            style = TextStyle(
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        )
+                    }
+                }
             }
         }
     }
@@ -80,23 +115,33 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
 fun TestButton(test: List<String>, navController: NavHostController) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.padding(start = 30.dp, end = 30.dp)
     ) {
         for(t in test) {
+            Spacer(modifier = Modifier.height(20.dp))
+
             Button(
                 onClick = { navController.navigate(Screen.ChoosePerson.route) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(60.dp),
-                shape = RoundedCornerShape(10.dp)
+                shape = RoundedCornerShape(30.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.White,
+                    contentColor = Color.Black
+                )
             ) {
                 Text(
+                    modifier = Modifier.fillMaxWidth(),
                     text = t,
                     style = TextStyle(
-                        fontSize = 20.sp
-                    ))
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Start
+                    )
+                )
             }
-            Spacer(modifier = Modifier.height(14.dp))
         }
     }
 }
@@ -108,3 +153,11 @@ var test = listOf(
     "Online data test",
     "Offline data test"
 )
+
+@Preview(showBackground = true)
+@Composable
+fun TestButtonPre() {
+    val navController = rememberNavController()
+
+    TestScreen(navController = navController, onClick = {})
+}

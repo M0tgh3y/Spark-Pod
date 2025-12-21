@@ -35,7 +35,7 @@ fun BottomBar(navController: NavHostController) {
 
     val items = listOf(
         BottomNavItem( Icons.Default.Home, Screen.Home.route),
-        BottomNavItem(Icons.Default.Check, Screen.Test.route),
+        BottomNavItem(Icons.Default.Android, Screen.Test.route),
         BottomNavItem(Icons.AutoMirrored.Filled.ListAlt, Screen.List.route),
         BottomNavItem(Icons.Default.Settings, Screen.Settings.route)
     )

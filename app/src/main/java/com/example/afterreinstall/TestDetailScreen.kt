@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,6 +31,7 @@ import androidx.compose.material.icons.filled.DensityMedium
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -41,6 +43,7 @@ import androidx.compose.material3.SuggestionChipDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -65,7 +68,8 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
         contentAlignment = Alignment.TopCenter
     ) {
         Column (
-            modifier = Modifier.padding(20.dp),
+            modifier = Modifier
+                .padding(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -109,8 +113,9 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                 contentDescription = "",
                 modifier = Modifier
                     .height(240.dp)
-                    .clip(RoundedCornerShape(24.dp)),
-                contentScale = ContentScale.FillHeight
+                    .clip(RoundedCornerShape(24.dp))
+                    .fillMaxWidth(),
+                contentScale = ContentScale.Crop
             )
 
             Spacer(modifier = Modifier.height(15.dp))
@@ -154,7 +159,7 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
 
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    InfoCardsRow()
+                    InfoCardsRow(onClick)
 
                     Spacer(modifier = Modifier.height(16.dp))
 
@@ -196,7 +201,7 @@ fun chips(text: String) {
 }
 
 @Composable
-fun InfoCardsRow() {
+fun InfoCardsRow(onClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth(),
@@ -215,7 +220,17 @@ fun InfoCardsRow() {
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Text("Hit")
+                Column (
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text("Hit")
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Icon(
+                        imageVector = Icons.Default.BackHand,
+                        contentDescription = null,
+                        modifier = Modifier.size(25.dp),
+                    )
+                }
             }
         }
 
@@ -231,7 +246,35 @@ fun InfoCardsRow() {
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Text("Color")
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text("Color")
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Button(
+                            onClick = { onClick() },
+                            modifier = Modifier
+                                .height(30.dp)
+                                .width(30.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color.Red
+                            )
+                        ) { }
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Button(
+                            onClick = { onClick() },
+                            modifier = Modifier
+                                .height(30.dp)
+                                .width(30.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color.Green
+                            )
+                        ) { }
+                    }
+                }
             }
         }
 
@@ -247,7 +290,19 @@ fun InfoCardsRow() {
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Text("Number")
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text("Number")
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(
+                        text = "2",
+                        style = TextStyle(
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    )
+                }
             }
         }
     }

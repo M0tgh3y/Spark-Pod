@@ -1,5 +1,10 @@
 package com.example.afterreinstall
 
+
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ListAlt
 import androidx.compose.material.icons.filled.*
@@ -10,7 +15,13 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Icon
-
+import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 
 
 data class BottomNavItem(
@@ -21,6 +32,7 @@ data class BottomNavItem(
 @Composable
 fun BottomBar(navController: NavHostController) {
 
+
     val items = listOf(
         BottomNavItem( Icons.Default.Home, Screen.Home.route),
         BottomNavItem(Icons.Default.Check, Screen.Test.route),
@@ -28,22 +40,47 @@ fun BottomBar(navController: NavHostController) {
         BottomNavItem(Icons.Default.Settings, Screen.Settings.route)
     )
 
-    NavigationBar {
-        val navBackStackEntry = navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry.value?.destination?.route
+    Surface(
+        shape = RoundedCornerShape(30.dp),
+        color = Color(0xFFACD4D5),
+        modifier = Modifier
+            .height(100.dp)
+            .padding(20.dp)
+    ) {
+        NavigationBar(containerColor = Color.Transparent) {
+            val navBackStackEntry = navController.currentBackStackEntryAsState()
+            val currentRoute = navBackStackEntry.value?.destination?.route
 
-        items.forEach { item ->
-            NavigationBarItem(
-                icon = { Icon(item.icon, contentDescription = item.route) },
-                selected = currentRoute == item.route,
-                onClick = {
-                    navController.navigate(item.route) {
-                        launchSingleTop = true
-                        restoreState = true
-                        popUpTo(Screen.Home.route)
-                    }
-                }
-            )
+            items.forEach { item ->
+                NavigationBarItem(
+                    icon = { Icon(
+                        item.icon,
+                        contentDescription = item.route,
+                        modifier = Modifier
+                            .size(38.dp)) },
+                    selected = currentRoute == item.route,
+                    onClick = {
+                        navController.navigate(item.route) {
+                            launchSingleTop = true
+                            restoreState = true
+                            popUpTo(Screen.Home.route)
+                        }
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = Color(0xFF1981C1),
+                        unselectedIconColor = Color.Black,
+                        indicatorColor = Color.Transparent
+                    )
+                )
+            }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BottomBarPre() {
+    val navController = rememberNavController()
+
+    BottomBar(navController = navController)
 }

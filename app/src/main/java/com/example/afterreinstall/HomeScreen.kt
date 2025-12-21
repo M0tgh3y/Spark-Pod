@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -76,4 +77,12 @@ fun HomeScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(20.dp))
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun HomeScreenPre() {
+    val navController = rememberNavController()
+
+    HomeScreen(navController = navController)
 }

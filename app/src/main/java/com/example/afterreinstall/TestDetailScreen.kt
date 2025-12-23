@@ -64,7 +64,8 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .verticalScroll(scrollState),
+            .verticalScroll(scrollState)
+            .background(color = Color.White),
         contentAlignment = Alignment.TopCenter
     ) {
         Column (
@@ -168,9 +169,16 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(48.dp),
-                        shape = RoundedCornerShape(50)
+                        shape = RoundedCornerShape(50),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF1981C1),
+                            contentColor = Color.Black
+                        )
                     ) {
-                        Text("Continue")
+                        Text("Continue",
+                            style = TextStyle(
+                                fontSize = 20.sp,
+                            ))
                     }
                 }
             }
@@ -182,7 +190,7 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
 fun chips(text: String) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF6650a4)
+            containerColor = Color(0xFF1981C1)
         ),
         shape = RoundedCornerShape(10.dp)
     ) {
@@ -194,7 +202,7 @@ fun chips(text: String) {
         ) {
             Text(
                 text = text,
-                color = Color.White
+                color = Color.Black
             )
         }
     }
@@ -213,7 +221,7 @@ fun InfoCardsRow(onClick: () -> Unit) {
                 .weight(1f)
                 .height(80.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFEFB8C8)
+                containerColor = Color(0xFFACD4D5)
             )
         ) {
             Box(
@@ -239,7 +247,7 @@ fun InfoCardsRow(onClick: () -> Unit) {
                 .weight(1f)
                 .height(80.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFEFB8C8)
+                containerColor = Color(0xFFACD4D5)
             )
         ) {
             Box(
@@ -283,7 +291,7 @@ fun InfoCardsRow(onClick: () -> Unit) {
                 .weight(1f)
                 .height(80.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFEFB8C8)
+                containerColor = Color(0xFFACD4D5)
             )
         ) {
             Box(

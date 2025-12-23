@@ -90,7 +90,7 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
                     TestButton(test, navController, onClick)
 
                     Button(
-                        onClick = { navController.navigate(Screen.ChoosePerson.route) },
+                        onClick = {},
                         modifier = Modifier
                             .padding(top = 20.dp, start = 30.dp, end = 30.dp, bottom = 30.dp)
                             .fillMaxWidth()
@@ -99,12 +99,12 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
                         colors = ButtonDefaults.buttonColors(
                             containerColor = Color(0xFF1981C1),
                             contentColor = Color.Black
-                        )) {
+                        )
+                    ) {
                         Text(
                             text = "Add a Test",
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold
                             )
                         )
                     }
@@ -141,8 +141,7 @@ fun TestButton(test: List<String>, navController: NavHostController, onClick: ()
                         modifier = Modifier.weight(1f),
                         text = t,
                         style = TextStyle(
-                            fontSize = 22.sp,
-                            fontWeight = FontWeight.Bold,
+                            fontSize = 22.sp
                         )
                     )
 

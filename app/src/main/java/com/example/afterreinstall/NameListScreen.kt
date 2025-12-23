@@ -9,12 +9,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -52,8 +54,23 @@ fun NameListScreen(navController: NavHostController) {
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            Button(onClick = { navController.navigate(Screen.AddPerson.route) }) {
-                Text("Add new person")
+            Button(
+                onClick = { navController.navigate(Screen.AddPerson.route) },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF1981C1),
+                    contentColor = Color.Black
+                ),
+                modifier = Modifier
+                    .padding(top = 20.dp, start = 30.dp, end = 30.dp, bottom = 30.dp)
+                    .fillMaxWidth()
+                    .height(60.dp),
+            ) {
+                Text(
+                    text = "Add new person",
+                    style = TextStyle(
+                        fontSize = 20.sp,
+                    )
+                )
             }
         }
     }
@@ -63,11 +80,15 @@ fun NameListScreen(navController: NavHostController) {
 fun NameCard(names: List<String>, navController: NavHostController) {
 
     for (name in names) {
-        OutlinedButton (
+        Button (
             onClick = { navController.navigate(Screen.PersonPage.route) },
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier
-                .height(60.dp)
+                .height(60.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFFACD4D5),
+                contentColor = Color.Black
+            )
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,

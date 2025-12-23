@@ -72,16 +72,16 @@ fun ListScreen(navController: NavHostController, onClick: () -> Unit) {
             ClassButton(classes, navController)
 
             Button(
-                onClick = { navController.navigate(Screen.ChoosePerson.route) },
+                onClick = { navController.navigate(Screen.AddList.route) },
                 modifier = Modifier
                     .padding(top = 20.dp, start = 30.dp, end = 30.dp, bottom = 30.dp)
                     .fillMaxWidth()
                     .height(60.dp),
-
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFF1981C1),
                     contentColor = Color.Black
-                )) {
+                )
+            ) {
                 Text(
                     text = "Create New List",
                     style = TextStyle(

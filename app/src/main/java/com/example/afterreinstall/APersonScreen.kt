@@ -118,13 +118,14 @@ fun APersonScreen(navController: NavHostController) {
                             border = BorderStroke(2.dp, Color.Black),
                             colors = CardDefaults.cardColors(
                                 containerColor = Color(0xFF1981C1)
-                            )
+                            ),
+                            shape = RoundedCornerShape(20.dp),
                         ) {
                             Column(
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(10.dp)
+                                    .padding(15.dp)
                             ) {
                                 Text(
                                     "Total Time",
@@ -133,6 +134,7 @@ fun APersonScreen(navController: NavHostController) {
                                     )
                                 )
                                 Spacer(modifier = Modifier.height(20.dp))
+
                                 Text("11.2",
                                     style = TextStyle(
                                         fontSize = 35.sp,
@@ -149,13 +151,14 @@ fun APersonScreen(navController: NavHostController) {
                             border = BorderStroke(2.dp, Color.Black),
                             colors = CardDefaults.cardColors(
                                 containerColor = Color(0xFF1981C1)
-                            )
+                            ),
+                            shape = RoundedCornerShape(20.dp),
                         ) {
                             Column(
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(10.dp)
+                                    .padding(15.dp)
                             ) {
                                 Text("Best Time:",
                                     style = TextStyle(

@@ -80,7 +80,7 @@ fun APersonScreen(navController: NavHostController) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(20.dp, 20.dp, 20.dp, 30.dp),
+                        .padding(20.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
@@ -174,6 +174,144 @@ fun APersonScreen(navController: NavHostController) {
                                 )
                             }
                         }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFFACD4D5)
+                ),
+                shape = RoundedCornerShape(24.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(20.dp)
+                ) {
+                    Text("chart",
+                        style = TextStyle(
+                            fontSize = 20.sp,
+                        )
+                    )
+
+                    Spacer(modifier = Modifier.height(50.dp))
+                }
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Card(
+                    modifier = Modifier.weight(1f),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFFACD4D5)
+                    ),
+                    shape = RoundedCornerShape(20.dp),
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(15.dp)
+                    ) {
+                        Text(
+                            "Best Time:",
+                            style = TextStyle(
+                                fontSize = 20.sp,
+                            )
+                        )
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Text("10.6",
+                            style = TextStyle(
+                                fontSize = 35.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Card(
+                    modifier = Modifier.weight(1f),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFFACD4D5)
+                    ),
+                    shape = RoundedCornerShape(20.dp),
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(15.dp)
+                    ) {
+                        Text(
+                            "Average Time:",
+                            style = TextStyle(
+                                fontSize = 20.sp,
+                            )
+                        )
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Text("11.2",
+                            style = TextStyle(
+                                fontSize = 35.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Column (
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Button (
+                        onClick = { navController.navigate(Screen.ReportPage.route) },
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(60.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF1981C1),
+                            contentColor = Color.Black
+                        )
+                    ) {
+                        Text("Report",
+                            style = TextStyle(
+                                fontSize = 20.sp,
+                            )
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(20.dp))
+
+                    Button (
+                        onClick = { navController.navigate(Screen.Test.route) },
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(60.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF1981C1),
+                            contentColor = Color.Black
+                        )
+                    ) {
+                        Text("New test",
+                            style = TextStyle(
+                                fontSize = 20.sp,
+                            )
+                        )
                     }
                 }
             }

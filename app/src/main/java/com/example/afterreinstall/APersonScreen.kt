@@ -71,8 +71,19 @@ fun APersonScreen(navController: NavHostController) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Last Test")
-                        Text("Test 9x4")
+                        Text(
+                            "Last Test",
+                            modifier = Modifier
+                                .weight(1f)
+                        )
+
+                        Spacer(modifier = Modifier.width(20.dp))
+
+                        Text(
+                            "Test 9x4",
+                            modifier = Modifier
+                                .weight(1f)
+                        )
                     }
 
                     Spacer(modifier = Modifier.height(10.dp))
@@ -80,22 +91,34 @@ fun APersonScreen(navController: NavHostController) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Card() {
+                        Card(
+                            modifier = Modifier.weight(1f)
+                        ) {
                             Column(
-                                horizontalAlignment = Alignment.CenterHorizontally
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(10.dp)
                             ) {
                                 Text("Total Time:")
+                                Spacer(modifier = Modifier.height(20.dp))
                                 Text("11.2")
                             }
                         }
 
                         Spacer(modifier = Modifier.width(20.dp))
 
-                        Card() {
+                        Card(
+                            modifier = Modifier.weight(1f)
+                        ) {
                             Column(
-                                horizontalAlignment = Alignment.CenterHorizontally
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(10.dp)
                             ) {
                                 Text("Best Time:")
+                                Spacer(modifier = Modifier.height(20.dp))
                                 Text("3.4")
                             }
                         }

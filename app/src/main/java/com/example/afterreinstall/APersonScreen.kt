@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,6 +29,9 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun APersonScreen(navController: NavHostController) {
+
+    val scrollState = rememberScrollState()
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -34,7 +39,8 @@ fun APersonScreen(navController: NavHostController) {
         contentAlignment = Alignment.TopCenter
     ) {
         Column (
-            modifier = Modifier.padding(start = 25.dp, top = 20.dp, end = 25.dp),
+            modifier = Modifier.padding(20.dp)
+                .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -197,7 +203,7 @@ fun APersonScreen(navController: NavHostController) {
                         )
                     )
 
-                    Spacer(modifier = Modifier.height(50.dp))
+                    Spacer(modifier = Modifier.height(200.dp))
                 }
             }
 

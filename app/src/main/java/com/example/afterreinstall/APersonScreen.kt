@@ -1,5 +1,6 @@
 package com.example.afterreinstall
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,8 +17,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
@@ -35,7 +39,8 @@ fun APersonScreen(navController: NavHostController) {
             verticalArrangement = Arrangement.Center
         ) {
             Card(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth(),
                 colors = CardDefaults.cardColors(
                     containerColor = Color(0xFFACD4D5)
                 ),
@@ -47,8 +52,19 @@ fun APersonScreen(navController: NavHostController) {
                         .padding(16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text("Motahare Gheysari", modifier = Modifier.weight(1f))
-                    Text("40240263")
+                    Text(
+                        "Motahare Gheysari",
+                        modifier = Modifier.weight(1f),
+                        style = TextStyle(
+                            fontSize = 18.sp,
+                        )
+                    )
+                    Text(
+                        "40240263",
+                        style = TextStyle(
+                                fontSize = 18.sp,
+                        )
+                    )
                 }
             }
 
@@ -64,7 +80,7 @@ fun APersonScreen(navController: NavHostController) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(16.dp),
+                        .padding(20.dp, 20.dp, 20.dp, 30.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
@@ -72,9 +88,12 @@ fun APersonScreen(navController: NavHostController) {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            "Last Test",
+                            "Last Test:",
                             modifier = Modifier
-                                .weight(1f)
+                                .weight(1f),
+                            style = TextStyle(
+                                fontSize = 20.sp,
+                            )
                         )
 
                         Spacer(modifier = Modifier.width(20.dp))
@@ -82,17 +101,24 @@ fun APersonScreen(navController: NavHostController) {
                         Text(
                             "Test 9x4",
                             modifier = Modifier
-                                .weight(1f)
+                                .weight(1f),
+                            style = TextStyle(
+                                fontSize = 20.sp,
+                            )
                         )
                     }
 
-                    Spacer(modifier = Modifier.height(10.dp))
+                    Spacer(modifier = Modifier.height(20.dp))
 
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Card(
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f),
+                            border = BorderStroke(2.dp, Color.Black),
+                            colors = CardDefaults.cardColors(
+                                containerColor = Color(0xFF1981C1)
+                            )
                         ) {
                             Column(
                                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -100,16 +126,30 @@ fun APersonScreen(navController: NavHostController) {
                                     .fillMaxWidth()
                                     .padding(10.dp)
                             ) {
-                                Text("Total Time:")
+                                Text(
+                                    "Total Time",
+                                    style = TextStyle(
+                                        fontSize = 20.sp,
+                                    )
+                                )
                                 Spacer(modifier = Modifier.height(20.dp))
-                                Text("11.2")
+                                Text("11.2",
+                                    style = TextStyle(
+                                        fontSize = 35.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                )
                             }
                         }
 
                         Spacer(modifier = Modifier.width(20.dp))
 
                         Card(
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f),
+                            border = BorderStroke(2.dp, Color.Black),
+                            colors = CardDefaults.cardColors(
+                                containerColor = Color(0xFF1981C1)
+                            )
                         ) {
                             Column(
                                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -117,9 +157,18 @@ fun APersonScreen(navController: NavHostController) {
                                     .fillMaxWidth()
                                     .padding(10.dp)
                             ) {
-                                Text("Best Time:")
+                                Text("Best Time:",
+                                    style = TextStyle(
+                                        fontSize = 20.sp,
+                                    )
+                                )
                                 Spacer(modifier = Modifier.height(20.dp))
-                                Text("3.4")
+                                Text("3.4",
+                                    style = TextStyle(
+                                        fontSize = 35.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                )
                             }
                         }
                     }

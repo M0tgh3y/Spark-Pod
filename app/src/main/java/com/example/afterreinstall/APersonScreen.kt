@@ -32,292 +32,295 @@ fun APersonScreen(navController: NavHostController) {
 
     val scrollState = rememberScrollState()
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 25.dp),
-        contentAlignment = Alignment.TopCenter
+    Column(
+        modifier = Modifier.verticalScroll(scrollState)
     ) {
-        Column (
-            modifier = Modifier.padding(20.dp)
-                .verticalScroll(scrollState),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = 25.dp),
+            contentAlignment = Alignment.TopCenter
         ) {
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFACD4D5)
-                ),
-                shape = RoundedCornerShape(24.dp)
+            Column (
+                modifier = Modifier.padding(20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
             ) {
-                Row(
+                Card(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
+                        .fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFFACD4D5)
+                    ),
+                    shape = RoundedCornerShape(24.dp)
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            "Motahare Gheysari",
+                            modifier = Modifier.weight(1f),
+                            style = TextStyle(
+                                fontSize = 18.sp,
+                            )
+                        )
+                        Text(
+                            "40240263",
+                            style = TextStyle(
+                                fontSize = 18.sp,
+                            )
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFFACD4D5)
+                    ),
+                    shape = RoundedCornerShape(24.dp),
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(20.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                "Last Test:",
+                                modifier = Modifier
+                                    .weight(1f),
+                                style = TextStyle(
+                                    fontSize = 20.sp,
+                                )
+                            )
+
+                            Spacer(modifier = Modifier.width(20.dp))
+
+                            Text(
+                                "Test 9x4",
+                                modifier = Modifier
+                                    .weight(1f),
+                                style = TextStyle(
+                                    fontSize = 20.sp,
+                                )
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Card(
+                                modifier = Modifier.weight(1f),
+                                border = BorderStroke(2.dp, Color.Black),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = Color(0xFF1981C1)
+                                ),
+                                shape = RoundedCornerShape(20.dp),
+                            ) {
+                                Column(
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(15.dp)
+                                ) {
+                                    Text(
+                                        "Total Time",
+                                        style = TextStyle(
+                                            fontSize = 20.sp,
+                                        )
+                                    )
+                                    Spacer(modifier = Modifier.height(20.dp))
+
+                                    Text("11.2",
+                                        style = TextStyle(
+                                            fontSize = 35.sp,
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    )
+                                }
+                            }
+
+                            Spacer(modifier = Modifier.width(20.dp))
+
+                            Card(
+                                modifier = Modifier.weight(1f),
+                                border = BorderStroke(2.dp, Color.Black),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = Color(0xFF1981C1)
+                                ),
+                                shape = RoundedCornerShape(20.dp),
+                            ) {
+                                Column(
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(15.dp)
+                                ) {
+                                    Text("Best Time:",
+                                        style = TextStyle(
+                                            fontSize = 20.sp,
+                                        )
+                                    )
+                                    Spacer(modifier = Modifier.height(20.dp))
+                                    Text("3.4",
+                                        style = TextStyle(
+                                            fontSize = 35.sp,
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFFACD4D5)
+                    ),
+                    shape = RoundedCornerShape(24.dp)
+                ) {
+                    Column(
+                        modifier = Modifier.padding(20.dp)
+                    ) {
+                        Text("chart",
+                            style = TextStyle(
+                                fontSize = 20.sp,
+                            )
+                        )
+
+                        Spacer(modifier = Modifier.height(200.dp))
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+                Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(
-                        "Motahare Gheysari",
+                    Card(
                         modifier = Modifier.weight(1f),
-                        style = TextStyle(
-                            fontSize = 18.sp,
-                        )
-                    )
-                    Text(
-                        "40240263",
-                        style = TextStyle(
-                                fontSize = 18.sp,
-                        )
-                    )
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color(0xFFACD4D5)
+                        ),
+                        shape = RoundedCornerShape(20.dp),
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(15.dp)
+                        ) {
+                            Text(
+                                "Best Time:",
+                                style = TextStyle(
+                                    fontSize = 20.sp,
+                                )
+                            )
+                            Spacer(modifier = Modifier.height(20.dp))
+
+                            Text("10.6",
+                                style = TextStyle(
+                                    fontSize = 35.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.width(20.dp))
+
+                    Card(
+                        modifier = Modifier.weight(1f),
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color(0xFFACD4D5)
+                        ),
+                        shape = RoundedCornerShape(20.dp),
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(15.dp)
+                        ) {
+                            Text(
+                                "Average Time:",
+                                style = TextStyle(
+                                    fontSize = 20.sp,
+                                )
+                            )
+                            Spacer(modifier = Modifier.height(20.dp))
+
+                            Text("11.2",
+                                style = TextStyle(
+                                    fontSize = 35.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            )
+                        }
+                    }
                 }
-            }
 
-            Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(20.dp))
 
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFACD4D5)
-                ),
-                shape = RoundedCornerShape(24.dp),
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(20.dp),
+                Column (
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(
-                            "Last Test:",
+                        Button (
+                            onClick = { navController.navigate(Screen.ReportPage.route) },
                             modifier = Modifier
-                                .weight(1f),
-                            style = TextStyle(
-                                fontSize = 20.sp,
+                                .weight(1f)
+                                .height(60.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color(0xFF1981C1),
+                                contentColor = Color.Black
                             )
-                        )
-
-                        Spacer(modifier = Modifier.width(20.dp))
-
-                        Text(
-                            "Test 9x4",
-                            modifier = Modifier
-                                .weight(1f),
-                            style = TextStyle(
-                                fontSize = 20.sp,
-                            )
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.height(20.dp))
-
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Card(
-                            modifier = Modifier.weight(1f),
-                            border = BorderStroke(2.dp, Color.Black),
-                            colors = CardDefaults.cardColors(
-                                containerColor = Color(0xFF1981C1)
-                            ),
-                            shape = RoundedCornerShape(20.dp),
                         ) {
-                            Column(
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(15.dp)
-                            ) {
-                                Text(
-                                    "Total Time",
-                                    style = TextStyle(
-                                        fontSize = 20.sp,
-                                    )
+                            Text("Report",
+                                style = TextStyle(
+                                    fontSize = 20.sp,
                                 )
-                                Spacer(modifier = Modifier.height(20.dp))
-
-                                Text("11.2",
-                                    style = TextStyle(
-                                        fontSize = 35.sp,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                )
-                            }
+                            )
                         }
 
                         Spacer(modifier = Modifier.width(20.dp))
 
-                        Card(
-                            modifier = Modifier.weight(1f),
-                            border = BorderStroke(2.dp, Color.Black),
-                            colors = CardDefaults.cardColors(
-                                containerColor = Color(0xFF1981C1)
-                            ),
-                            shape = RoundedCornerShape(20.dp),
+                        Button (
+                            onClick = { navController.navigate(Screen.Test.route) },
+                            modifier = Modifier
+                                .weight(1f)
+                                .height(60.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color(0xFF1981C1),
+                                contentColor = Color.Black
+                            )
                         ) {
-                            Column(
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(15.dp)
-                            ) {
-                                Text("Best Time:",
-                                    style = TextStyle(
-                                        fontSize = 20.sp,
-                                    )
+                            Text("New test",
+                                style = TextStyle(
+                                    fontSize = 20.sp,
                                 )
-                                Spacer(modifier = Modifier.height(20.dp))
-                                Text("3.4",
-                                    style = TextStyle(
-                                        fontSize = 35.sp,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                )
-                            }
+                            )
                         }
-                    }
-                }
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFACD4D5)
-                ),
-                shape = RoundedCornerShape(24.dp)
-            ) {
-                Column(
-                    modifier = Modifier.padding(20.dp)
-                ) {
-                    Text("chart",
-                        style = TextStyle(
-                            fontSize = 20.sp,
-                        )
-                    )
-
-                    Spacer(modifier = Modifier.height(200.dp))
-                }
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Card(
-                    modifier = Modifier.weight(1f),
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFACD4D5)
-                    ),
-                    shape = RoundedCornerShape(20.dp),
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(15.dp)
-                    ) {
-                        Text(
-                            "Best Time:",
-                            style = TextStyle(
-                                fontSize = 20.sp,
-                            )
-                        )
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        Text("10.6",
-                            style = TextStyle(
-                                fontSize = 35.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.width(20.dp))
-
-                Card(
-                    modifier = Modifier.weight(1f),
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFACD4D5)
-                    ),
-                    shape = RoundedCornerShape(20.dp),
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(15.dp)
-                    ) {
-                        Text(
-                            "Average Time:",
-                            style = TextStyle(
-                                fontSize = 20.sp,
-                            )
-                        )
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        Text("11.2",
-                            style = TextStyle(
-                                fontSize = 35.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        )
-                    }
-                }
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Column (
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Button (
-                        onClick = { navController.navigate(Screen.ReportPage.route) },
-                        modifier = Modifier
-                            .weight(1f)
-                            .height(60.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color(0xFF1981C1),
-                            contentColor = Color.Black
-                        )
-                    ) {
-                        Text("Report",
-                            style = TextStyle(
-                                fontSize = 20.sp,
-                            )
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.width(20.dp))
-
-                    Button (
-                        onClick = { navController.navigate(Screen.Test.route) },
-                        modifier = Modifier
-                            .weight(1f)
-                            .height(60.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color(0xFF1981C1),
-                            contentColor = Color.Black
-                        )
-                    ) {
-                        Text("New test",
-                            style = TextStyle(
-                                fontSize = 20.sp,
-                            )
-                        )
                     }
                 }
             }

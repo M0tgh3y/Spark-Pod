@@ -28,18 +28,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.afterreinstall.ui.theme.FernGreen
+import com.example.afterreinstall.ui.theme.PakistanGreen
+import com.example.afterreinstall.ui.theme.ResedaGreen
 
 @Composable
 fun ListScreen(navController: NavHostController, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 25.dp)
-            .background(color = Color.White),
+            .background(PakistanGreen),
         contentAlignment = Alignment.TopCenter
     ) {
         Column (
-            modifier = Modifier.padding(start = 25.dp, end = 25.dp),
+            modifier = Modifier.padding(start = 25.dp, end = 25.dp, top = 25.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -52,7 +54,8 @@ fun ListScreen(navController: NavHostController, onClick: () -> Unit) {
                         fontSize = 28.sp,
                         fontWeight = FontWeight.Bold
                     ),
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
+                    color = Color.White
                 )
 
                 IconButton(
@@ -62,23 +65,23 @@ fun ListScreen(navController: NavHostController, onClick: () -> Unit) {
                         imageVector = Icons.Default.DensityMedium,
                         contentDescription = null,
                         modifier = Modifier
-                            .size(32.dp)
+                            .size(32.dp),
+                        tint = Color.White
                     )
                 }
             }
 
-            Spacer(modifier = Modifier.height(50.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             ClassButton(classes, navController)
 
             Button(
                 onClick = { navController.navigate(Screen.AddList.route) },
                 modifier = Modifier
-                    .padding(top = 20.dp, start = 30.dp, end = 30.dp, bottom = 30.dp)
                     .fillMaxWidth()
                     .height(60.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF1981C1),
+                    containerColor = FernGreen,
                     contentColor = Color.Black
                 )
             ) {
@@ -86,7 +89,8 @@ fun ListScreen(navController: NavHostController, onClick: () -> Unit) {
                     text = "Create New List",
                     style = TextStyle(
                         fontSize = 20.sp,
-                    )
+                    ),
+                    color = Color.White
                 )
             }
         }
@@ -107,7 +111,7 @@ fun ClassButton(classes: List<List<String>>, navController: NavHostController) {
                     .height(90.dp),
                 shape = RoundedCornerShape(24.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFACD4D5),
+                    containerColor = ResedaGreen,
                     contentColor = Color.Black
                 )
             ) {
@@ -119,7 +123,8 @@ fun ClassButton(classes: List<List<String>>, navController: NavHostController) {
                         .padding(start = 5.dp)) {
                         Text(
                             text = c[0],
-                            fontSize = 22.sp
+                            fontSize = 22.sp,
+                            color = Color.White
                         )
 
                         Spacer(modifier = Modifier.height(8.dp))
@@ -127,12 +132,12 @@ fun ClassButton(classes: List<List<String>>, navController: NavHostController) {
                         Text(
                             text = c[1],
                             fontSize = 15.sp,
-                            color = Color(0xFF595050)
+                            color = Color(0xFFECEFF1)
                         )
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(15.dp))
         }
     }
 }

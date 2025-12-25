@@ -78,7 +78,7 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
                 }
             }
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -90,7 +90,6 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
                     onClick = {},
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 15.dp)
                         .height(60.dp),
 
                     colors = ButtonDefaults.buttonColors(
@@ -118,7 +117,6 @@ fun TestButton(test: List<String>, navController: NavHostController, onClick: ()
         verticalArrangement = Arrangement.Center,
     ) {
         for(t in test) {
-            Spacer(modifier = Modifier.height(15.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -155,6 +153,8 @@ fun TestButton(test: List<String>, navController: NavHostController, onClick: ()
                     }
                 }
             }
+
+            Spacer(modifier = Modifier.height(15.dp))
         }
     }
 }

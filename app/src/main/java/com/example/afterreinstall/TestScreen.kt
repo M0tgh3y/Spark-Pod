@@ -119,7 +119,7 @@ fun TestButton(test: List<String>, navController: NavHostController, onClick: ()
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.padding(start = 30.dp, end = 30.dp)
+        modifier = Modifier.padding(start = 20.dp, end = 20.dp)
     ) {
         for(t in test) {
             Spacer(modifier = Modifier.height(20.dp))

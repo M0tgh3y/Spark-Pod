@@ -45,7 +45,7 @@ fun BottomBar(navController: NavHostController) {
         color = Color(0xFFACD4D5),
         modifier = Modifier
             .height(100.dp)
-            .padding(20.dp)
+            .padding(25.dp)
     ) {
         NavigationBar(containerColor = Color.Transparent) {
             val navBackStackEntry = navController.currentBackStackEntryAsState()
@@ -57,7 +57,7 @@ fun BottomBar(navController: NavHostController) {
                         item.icon,
                         contentDescription = item.route,
                         modifier = Modifier
-                            .size(38.dp)) },
+                            .size(30.dp)) },
                     selected = currentRoute == item.route,
                     onClick = {
                         navController.navigate(item.route) {

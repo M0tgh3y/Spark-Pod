@@ -182,6 +182,7 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                     }
                 }
             }
+            Spacer(modifier = Modifier.height(100.dp))
         }
     }
 }

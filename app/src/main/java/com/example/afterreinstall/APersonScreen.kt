@@ -323,6 +323,7 @@ fun APersonScreen(navController: NavHostController) {
                         }
                     }
                 }
+                Spacer(modifier = Modifier.height(100.dp))
             }
         }
     }

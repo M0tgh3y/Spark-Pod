@@ -33,19 +33,21 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.afterreinstall.ui.theme.FernGreen
+import com.example.afterreinstall.ui.theme.PakistanGreen
+import com.example.afterreinstall.ui.theme.ResedaGreen
 
 @Composable
 fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 25.dp)
-            .background(color = Color.White),
+            .background(PakistanGreen),
         contentAlignment = Alignment.TopCenter
     ) {
         Column (
             modifier = Modifier
-                .padding(start = 25.dp, end = 25.dp),
+                .padding(start = 25.dp, end = 25.dp, top = 25.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -56,9 +58,11 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
                 Text(text = "Test",
                     style = TextStyle(
                         fontSize = 28.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
                     ),
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier
+                        .weight(1f)
                 )
 
                 IconButton(
@@ -68,46 +72,39 @@ fun TestScreen(navController: NavHostController, onClick: () -> Unit) {
                         imageVector = Icons.Default.DensityMedium,
                         contentDescription = null,
                         modifier = Modifier
-                            .size(32.dp)
+                            .size(32.dp),
+                        tint = Color.White
                     )
                 }
             }
 
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(10.dp))
 
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFACD4D5)
-                ),
-                shape = RoundedCornerShape(24.dp),
-            ) {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            )
+            {
+                TestButton(test, navController, onClick)
+
+                Button(
+                    onClick = {},
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 15.dp)
+                        .height(60.dp),
+
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = FernGreen,
+                        contentColor = Color.Black
+                    )
                 ) {
-                    Spacer(modifier = Modifier.height(10.dp))
-
-                    TestButton(test, navController, onClick)
-
-                    Button(
-                        onClick = {},
-                        modifier = Modifier
-                            .padding(top = 20.dp, start = 30.dp, end = 30.dp, bottom = 30.dp)
-                            .fillMaxWidth()
-                            .height(60.dp),
-
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color(0xFF1981C1),
-                            contentColor = Color.Black
-                        )
-                    ) {
-                        Text(
-                            text = "Add a Test",
-                            style = TextStyle(
-                                fontSize = 20.sp,
-                            )
-                        )
-                    }
+                    Text(
+                        text = "Add a Test",
+                        style = TextStyle(
+                            fontSize = 20.sp,
+                        ),
+                        color = Color.White
+                    )
                 }
             }
         }
@@ -119,10 +116,9 @@ fun TestButton(test: List<String>, navController: NavHostController, onClick: ()
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.padding(start = 20.dp, end = 20.dp)
     ) {
         for(t in test) {
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(15.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -130,10 +126,10 @@ fun TestButton(test: List<String>, navController: NavHostController, onClick: ()
                     onClick = { navController.navigate(Screen.ChoosePerson.route) },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(60.dp),
+                        .height(90.dp),
                     shape = RoundedCornerShape(30.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color.White,
+                        containerColor = ResedaGreen,
                         contentColor = Color.Black
                     )
                 ) {
@@ -142,7 +138,8 @@ fun TestButton(test: List<String>, navController: NavHostController, onClick: ()
                         text = t,
                         style = TextStyle(
                             fontSize = 22.sp
-                        )
+                        ),
+                        color = Color.White
                     )
 
                     IconButton(
@@ -152,7 +149,8 @@ fun TestButton(test: List<String>, navController: NavHostController, onClick: ()
                             imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos,
                             contentDescription = null,
                             modifier = Modifier
-                                .size(20.dp)
+                                .size(20.dp),
+                            tint = Color.White
                         )
                     }
                 }

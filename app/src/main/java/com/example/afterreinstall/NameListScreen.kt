@@ -1,5 +1,6 @@
 package com.example.afterreinstall
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -24,17 +25,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.afterreinstall.ui.theme.FernGreen
+import com.example.afterreinstall.ui.theme.PakistanGreen
+import com.example.afterreinstall.ui.theme.ResedaGreen
 
 @Composable
 fun NameListScreen(navController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 25.dp),
+            .background(PakistanGreen),
         contentAlignment = Alignment.TopCenter
     ) {
         Column (
-            modifier = Modifier.padding(start = 25.dp, end = 25.dp),
+            modifier = Modifier.padding(start = 25.dp, end = 25.dp, top = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -44,24 +48,22 @@ fun NameListScreen(navController: NavHostController) {
                     style = TextStyle(
                         fontSize = 28.sp,
                         fontWeight = FontWeight.Bold
-                    )
+                    ),
+                    color = Color.White
                 )
             }
 
-            Spacer(modifier = Modifier.height(50.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             NameCard(names, navController)
-
-            Spacer(modifier = Modifier.height(20.dp))
 
             Button(
                 onClick = { navController.navigate(Screen.AddPerson.route) },
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF1981C1),
+                    containerColor = FernGreen,
                     contentColor = Color.Black
                 ),
                 modifier = Modifier
-                    .padding(top = 20.dp, start = 30.dp, end = 30.dp, bottom = 30.dp)
                     .fillMaxWidth()
                     .height(60.dp),
             ) {
@@ -69,7 +71,8 @@ fun NameListScreen(navController: NavHostController) {
                     text = "Add new person",
                     style = TextStyle(
                         fontSize = 20.sp,
-                    )
+                    ),
+                    color = Color.White
                 )
             }
         }
@@ -82,11 +85,11 @@ fun NameCard(names: List<String>, navController: NavHostController) {
     for (name in names) {
         Button (
             onClick = { navController.navigate(Screen.PersonPage.route) },
-            shape = RoundedCornerShape(10.dp),
+            shape = RoundedCornerShape(24.dp),
             modifier = Modifier
                 .height(60.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFFACD4D5),
+                containerColor = ResedaGreen,
                 contentColor = Color.Black
             )
         ) {
@@ -99,13 +102,15 @@ fun NameCard(names: List<String>, navController: NavHostController) {
                     style = TextStyle(
                         fontSize = 20.sp,
                     ),
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
+                    color = Color.White
                 )
 
                 Icon(
                     imageVector = Icons.Default.Edit,
                     contentDescription = null,
-                    modifier = Modifier.size(28.dp)
+                    modifier = Modifier.size(28.dp),
+                    tint = Color.White
                 )
 
                 Spacer(modifier = Modifier.width(20.dp))
@@ -113,11 +118,12 @@ fun NameCard(names: List<String>, navController: NavHostController) {
                 Icon(
                     imageVector = Icons.Default.Delete,
                     contentDescription = null,
-                    modifier = Modifier.size(28.dp)
+                    modifier = Modifier.size(28.dp),
+                    tint = Color.White
                 )
             }
         }
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(15.dp))
     }
 }
 

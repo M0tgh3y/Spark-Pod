@@ -1,6 +1,7 @@
 package com.example.afterreinstall
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,6 +27,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.afterreinstall.ui.theme.FernGreen
+import com.example.afterreinstall.ui.theme.PakistanGreen
+import com.example.afterreinstall.ui.theme.ResedaGreen
 
 @Composable
 fun APersonScreen(navController: NavHostController) {
@@ -38,7 +42,7 @@ fun APersonScreen(navController: NavHostController) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 25.dp),
+                .background(PakistanGreen),
             contentAlignment = Alignment.TopCenter
         ) {
             Column (
@@ -50,7 +54,7 @@ fun APersonScreen(navController: NavHostController) {
                     modifier = Modifier
                         .fillMaxWidth(),
                     colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFACD4D5)
+                        containerColor = ResedaGreen
                     ),
                     shape = RoundedCornerShape(24.dp)
                 ) {
@@ -65,13 +69,15 @@ fun APersonScreen(navController: NavHostController) {
                             modifier = Modifier.weight(1f),
                             style = TextStyle(
                                 fontSize = 18.sp,
-                            )
+                            ),
+                            color = Color.White
                         )
                         Text(
                             "40240263",
                             style = TextStyle(
                                 fontSize = 18.sp,
-                            )
+                            ),
+                            color = Color.White
                         )
                     }
                 }
@@ -81,7 +87,7 @@ fun APersonScreen(navController: NavHostController) {
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFACD4D5)
+                        containerColor = ResedaGreen
                     ),
                     shape = RoundedCornerShape(24.dp),
                 ) {
@@ -101,7 +107,9 @@ fun APersonScreen(navController: NavHostController) {
                                     .weight(1f),
                                 style = TextStyle(
                                     fontSize = 20.sp,
-                                )
+                                ),
+                                color = Color.White
+
                             )
 
                             Spacer(modifier = Modifier.width(20.dp))
@@ -112,7 +120,9 @@ fun APersonScreen(navController: NavHostController) {
                                     .weight(1f),
                                 style = TextStyle(
                                     fontSize = 20.sp,
-                                )
+                                ),
+                                color = Color.White
+
                             )
                         }
 
@@ -125,7 +135,7 @@ fun APersonScreen(navController: NavHostController) {
                                 modifier = Modifier.weight(1f),
                                 border = BorderStroke(2.dp, Color.Black),
                                 colors = CardDefaults.cardColors(
-                                    containerColor = Color(0xFF1981C1)
+                                    containerColor = FernGreen
                                 ),
                                 shape = RoundedCornerShape(20.dp),
                             ) {
@@ -139,7 +149,9 @@ fun APersonScreen(navController: NavHostController) {
                                         "Total Time",
                                         style = TextStyle(
                                             fontSize = 20.sp,
-                                        )
+                                        ),
+                                        color = Color.White
+
                                     )
                                     Spacer(modifier = Modifier.height(20.dp))
 
@@ -147,7 +159,9 @@ fun APersonScreen(navController: NavHostController) {
                                         style = TextStyle(
                                             fontSize = 35.sp,
                                             fontWeight = FontWeight.Bold
-                                        )
+                                        ),
+                                        color = Color.White
+
                                     )
                                 }
                             }
@@ -158,7 +172,7 @@ fun APersonScreen(navController: NavHostController) {
                                 modifier = Modifier.weight(1f),
                                 border = BorderStroke(2.dp, Color.Black),
                                 colors = CardDefaults.cardColors(
-                                    containerColor = Color(0xFF1981C1)
+                                    containerColor = FernGreen
                                 ),
                                 shape = RoundedCornerShape(20.dp),
                             ) {
@@ -171,14 +185,17 @@ fun APersonScreen(navController: NavHostController) {
                                     Text("Best Time:",
                                         style = TextStyle(
                                             fontSize = 20.sp,
-                                        )
+                                        ),
+                                        color = Color.White
                                     )
                                     Spacer(modifier = Modifier.height(20.dp))
                                     Text("3.4",
                                         style = TextStyle(
                                             fontSize = 35.sp,
                                             fontWeight = FontWeight.Bold
-                                        )
+                                        ),
+                                        color = Color.White
+
                                     )
                                 }
                             }
@@ -192,7 +209,7 @@ fun APersonScreen(navController: NavHostController) {
                     modifier = Modifier
                         .fillMaxWidth(),
                     colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFACD4D5)
+                        containerColor = ResedaGreen
                     ),
                     shape = RoundedCornerShape(24.dp)
                 ) {
@@ -202,7 +219,8 @@ fun APersonScreen(navController: NavHostController) {
                         Text("chart",
                             style = TextStyle(
                                 fontSize = 20.sp,
-                            )
+                            ),
+                            color = Color.White
                         )
 
                         Spacer(modifier = Modifier.height(200.dp))
@@ -217,7 +235,7 @@ fun APersonScreen(navController: NavHostController) {
                     Card(
                         modifier = Modifier.weight(1f),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFFACD4D5)
+                            containerColor = ResedaGreen
                         ),
                         shape = RoundedCornerShape(20.dp),
                     ) {
@@ -231,7 +249,9 @@ fun APersonScreen(navController: NavHostController) {
                                 "Best Time:",
                                 style = TextStyle(
                                     fontSize = 20.sp,
-                                )
+                                ),
+                                color = Color.White
+
                             )
                             Spacer(modifier = Modifier.height(20.dp))
 
@@ -239,7 +259,9 @@ fun APersonScreen(navController: NavHostController) {
                                 style = TextStyle(
                                     fontSize = 35.sp,
                                     fontWeight = FontWeight.Bold
-                                )
+                                ),
+                                color = Color.White
+
                             )
                         }
                     }
@@ -249,7 +271,7 @@ fun APersonScreen(navController: NavHostController) {
                     Card(
                         modifier = Modifier.weight(1f),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFFACD4D5)
+                            containerColor = ResedaGreen
                         ),
                         shape = RoundedCornerShape(20.dp),
                     ) {
@@ -263,7 +285,8 @@ fun APersonScreen(navController: NavHostController) {
                                 "Average Time:",
                                 style = TextStyle(
                                     fontSize = 20.sp,
-                                )
+                                ),
+                                color = Color.White
                             )
                             Spacer(modifier = Modifier.height(20.dp))
 
@@ -271,7 +294,8 @@ fun APersonScreen(navController: NavHostController) {
                                 style = TextStyle(
                                     fontSize = 35.sp,
                                     fontWeight = FontWeight.Bold
-                                )
+                                ),
+                                color = Color.White
                             )
                         }
                     }
@@ -292,14 +316,15 @@ fun APersonScreen(navController: NavHostController) {
                                 .weight(1f)
                                 .height(60.dp),
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = Color(0xFF1981C1),
+                                containerColor = FernGreen,
                                 contentColor = Color.Black
                             )
                         ) {
                             Text("Report",
                                 style = TextStyle(
                                     fontSize = 20.sp,
-                                )
+                                ),
+                                color = Color.White
                             )
                         }
 
@@ -311,14 +336,15 @@ fun APersonScreen(navController: NavHostController) {
                                 .weight(1f)
                                 .height(60.dp),
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = Color(0xFF1981C1),
+                                containerColor = FernGreen,
                                 contentColor = Color.Black
                             )
                         ) {
                             Text("New test",
                                 style = TextStyle(
                                     fontSize = 20.sp,
-                                )
+                                ),
+                                color = Color.White
                             )
                         }
                     }

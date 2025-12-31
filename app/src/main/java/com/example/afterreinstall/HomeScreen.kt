@@ -2,6 +2,7 @@ package com.example.afterreinstall
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -36,16 +38,18 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.afterreinstall.ui.theme.PakistanGreen
 
 @Composable
 fun HomeScreen(navController: NavController) {
     Box(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .background(PakistanGreen),
         contentAlignment = Alignment.TopCenter
     ) {
         Column(
-            modifier = Modifier.padding(start = 25.dp, end = 25.dp, top = 25.dp),
+            modifier = Modifier.padding(25.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -59,7 +63,8 @@ fun HomeScreen(navController: NavController) {
                         fontSize = 28.sp,
                         fontWeight = FontWeight.Bold
                     ),
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
+                    color = Color.White
                 )
 
                 IconButton(
@@ -69,6 +74,7 @@ fun HomeScreen(navController: NavController) {
                         imageVector = Icons.Default.Android,
                         contentDescription = null,
                         modifier = Modifier.size(32.dp),
+                        tint = Color.White
                     )
                 }
             }

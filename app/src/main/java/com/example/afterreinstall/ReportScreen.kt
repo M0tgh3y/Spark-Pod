@@ -1,6 +1,8 @@
 package com.example.afterreinstall
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.DensityMedium
@@ -13,19 +15,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.afterreinstall.ui.theme.PakistanGreen
+import com.example.afterreinstall.ui.theme.ResedaGreen
 
 @Composable
 fun ReportScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 25.dp),
+            .background(PakistanGreen),
         contentAlignment = Alignment.TopCenter
     ) {
         Column(
-            modifier = Modifier.padding(start = 25.dp, end = 25.dp),
+            modifier = Modifier.padding(25.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -34,7 +39,8 @@ fun ReportScreen() {
                 style = TextStyle(
                     fontSize = 28.sp,
                     fontWeight = FontWeight.Bold
-                )
+                ),
+                color = Color.White
             )
 
             Spacer(modifier = Modifier.height(25.dp))
@@ -51,19 +57,22 @@ fun TestReportCard(testReport: List<List<String>>) {
 
     testReport.forEachIndexed { index, test ->
 
-        OutlinedButton(
-            onClick = {},
-            modifier = Modifier.fillMaxWidth()
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(ResedaGreen, shape = RoundedCornerShape(24.dp)),
+            contentAlignment = Alignment.Center
         ) {
             Row(
-                modifier = Modifier.padding(10.dp),
+                modifier = Modifier.padding(20.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
 
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
                         text = test[0],
-                        fontSize = 22.sp
+                        fontSize = 22.sp,
+                        color = Color.White
                     )
 
                     Spacer(modifier = Modifier.height(8.dp))
@@ -71,7 +80,7 @@ fun TestReportCard(testReport: List<List<String>>) {
                     Text(
                         text = test[1],
                         fontSize = 15.sp,
-                        color = Color.Gray
+                        color = Color(0xFFECEFF1)
                     )
                 }
 
@@ -82,7 +91,8 @@ fun TestReportCard(testReport: List<List<String>>) {
                         Icon(
                             imageVector = Icons.Default.DensityMedium,
                             contentDescription = null,
-                            modifier = Modifier.size(32.dp)
+                            modifier = Modifier.size(32.dp),
+                            tint = Color.White
                         )
                     }
 
@@ -145,3 +155,9 @@ val testReport = listOf(
     listOf("Shuttle Run Test", "1404.08.05"),
     listOf("Test 9x4", "1404.07.25")
 )
+
+@Preview(showBackground = true)
+@Composable
+fun ReportScreenPre() {
+    ReportScreen()
+}

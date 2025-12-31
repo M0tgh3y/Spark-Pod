@@ -125,7 +125,7 @@ fun TestButton(test: List<String>, navController: NavHostController, onClick: ()
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(90.dp),
-                    shape = RoundedCornerShape(30.dp),
+                    shape = RoundedCornerShape(24.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = ResedaGreen,
                         contentColor = Color.Black

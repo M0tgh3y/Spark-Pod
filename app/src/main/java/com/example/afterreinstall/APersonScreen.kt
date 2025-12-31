@@ -137,7 +137,7 @@ fun APersonScreen(navController: NavHostController) {
                                 colors = CardDefaults.cardColors(
                                     containerColor = FernGreen
                                 ),
-                                shape = RoundedCornerShape(20.dp),
+                                shape = RoundedCornerShape(24.dp),
                             ) {
                                 Column(
                                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -174,7 +174,7 @@ fun APersonScreen(navController: NavHostController) {
                                 colors = CardDefaults.cardColors(
                                     containerColor = FernGreen
                                 ),
-                                shape = RoundedCornerShape(20.dp),
+                                shape = RoundedCornerShape(24.dp),
                             ) {
                                 Column(
                                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -237,7 +237,7 @@ fun APersonScreen(navController: NavHostController) {
                         colors = CardDefaults.cardColors(
                             containerColor = ResedaGreen
                         ),
-                        shape = RoundedCornerShape(20.dp),
+                        shape = RoundedCornerShape(24.dp),
                     ) {
                         Column(
                             horizontalAlignment = Alignment.CenterHorizontally,
@@ -273,7 +273,7 @@ fun APersonScreen(navController: NavHostController) {
                         colors = CardDefaults.cardColors(
                             containerColor = ResedaGreen
                         ),
-                        shape = RoundedCornerShape(20.dp),
+                        shape = RoundedCornerShape(24.dp),
                     ) {
                         Column(
                             horizontalAlignment = Alignment.CenterHorizontally,

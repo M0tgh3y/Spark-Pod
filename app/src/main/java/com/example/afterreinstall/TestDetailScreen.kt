@@ -70,7 +70,7 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
     ) {
         Column (
             modifier = Modifier
-                .padding(20.dp),
+                .padding(25.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {

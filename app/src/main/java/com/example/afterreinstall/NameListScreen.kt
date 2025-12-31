@@ -37,7 +37,7 @@ fun NameListScreen(navController: NavHostController) {
         contentAlignment = Alignment.TopCenter
     ) {
         Column (
-            modifier = Modifier.padding(start = 25.dp, end = 25.dp, top = 20.dp),
+            modifier = Modifier.padding(start = 25.dp, end = 25.dp, top = 25.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {

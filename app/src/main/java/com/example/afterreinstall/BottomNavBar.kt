@@ -22,6 +22,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
+import com.example.afterreinstall.ui.theme.DarkMoss
+import com.example.afterreinstall.ui.theme.ResedaGreen
 
 
 data class BottomNavItem(
@@ -42,7 +44,7 @@ fun BottomBar(navController: NavHostController) {
 
     Surface(
         shape = RoundedCornerShape(30.dp),
-        color = Color(0xFFACD4D5),
+        color = DarkMoss,
         modifier = Modifier
             .height(100.dp)
             .padding(25.dp)
@@ -67,8 +69,8 @@ fun BottomBar(navController: NavHostController) {
                         }
                     },
                     colors = NavigationBarItemDefaults.colors(
-                        selectedIconColor = Color(0xFF1981C1),
-                        unselectedIconColor = Color.Black,
+                        selectedIconColor = ResedaGreen,
+                        unselectedIconColor = Color.White,
                         indicatorColor = Color.Transparent
                     )
                 )

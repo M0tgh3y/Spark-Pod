@@ -41,12 +41,11 @@ import androidx.navigation.compose.rememberNavController
 fun HomeScreen(navController: NavController) {
     Box(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 25.dp),
+            .fillMaxSize(),
         contentAlignment = Alignment.TopCenter
     ) {
         Column(
-            modifier = Modifier.padding(start = 25.dp, end = 25.dp),
+            modifier = Modifier.padding(start = 25.dp, end = 25.dp, top = 25.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {

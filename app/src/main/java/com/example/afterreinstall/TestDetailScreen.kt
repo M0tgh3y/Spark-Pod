@@ -56,6 +56,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
+import com.example.afterreinstall.ui.theme.DarkMoss
+import com.example.afterreinstall.ui.theme.FernGreen
+import com.example.afterreinstall.ui.theme.PakistanGreen
+import com.example.afterreinstall.ui.theme.ResedaGreen
 
 
 @Composable
@@ -65,7 +69,7 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(scrollState)
-            .background(color = Color.White),
+            .background(PakistanGreen),
         contentAlignment = Alignment.TopCenter
     ) {
         Column (
@@ -78,9 +82,8 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                 modifier = Modifier
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(24.dp),
-                elevation = CardDefaults.cardElevation(8.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = Color.White
+                    containerColor = ResedaGreen
                 )
             ) {
                 Row(
@@ -92,7 +95,8 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                             fontSize = 24.sp,
                             fontWeight = FontWeight.Bold
                         ),
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
+                        color = Color.White
                     )
 
                     IconButton(
@@ -102,12 +106,13 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                             imageVector = Icons.Default.Settings,
                             contentDescription = null,
                             modifier = Modifier.size(28.dp),
+                            tint = Color.White
                         )
                     }
                 }
             }
 
-            Spacer(modifier = Modifier.height(15.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             Image(
                 painter = painterResource(id = R.drawable.pic1),
@@ -119,7 +124,7 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                 contentScale = ContentScale.Crop
             )
 
-            Spacer(modifier = Modifier.height(15.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             Card(
                 modifier = Modifier
@@ -127,7 +132,7 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                 shape = RoundedCornerShape(24.dp),
                 elevation = CardDefaults.cardElevation(8.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = Color.White
+                    containerColor = ResedaGreen
                 )
             ) {
                 Column(
@@ -137,7 +142,8 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                     Text(
                         text = "Description:",
                         fontSize = 22.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
                     )
 
                     Spacer(modifier = Modifier.height(10.dp))
@@ -145,7 +151,8 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                     Text(
                         text = "Mark two parallel lines 9 meters apart. Place two cones behind the start and finish lines. The athlete stands behind the starting line. When the start button is pressed, the athlete must run toward the opposite line and touch the cone, then return to the starting point and touch the second cone, and finally return to the starting point again. The athlete covers the 9-meter distance a total of four times, and the completion time is recorded.",
                         fontSize = 17.sp,
-                        lineHeight = 20.sp
+                        lineHeight = 20.sp,
+                        color = Color.White
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
@@ -168,17 +175,18 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
                         onClick = { navController.navigate(Screen.AfterStart.route) },
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(48.dp),
+                            .height(60.dp),
                         shape = RoundedCornerShape(50),
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = Color(0xFF1981C1),
-                            contentColor = Color.Black
+                            containerColor = FernGreen,
+                            contentColor = Color.White
                         )
                     ) {
                         Text("Continue",
                             style = TextStyle(
                                 fontSize = 20.sp,
-                            ))
+                            )
+                        )
                     }
                 }
             }
@@ -191,7 +199,7 @@ fun TestDetailScreen(navController: NavHostController, onClick: () -> Unit) {
 fun chips(text: String) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF1981C1)
+            containerColor = FernGreen
         ),
         shape = RoundedCornerShape(10.dp)
     ) {
@@ -203,7 +211,10 @@ fun chips(text: String) {
         ) {
             Text(
                 text = text,
-                color = Color.Black
+                color = Color.White,
+                style = TextStyle(
+                    fontSize = 15.sp
+                )
             )
         }
     }
@@ -222,7 +233,7 @@ fun InfoCardsRow(onClick: () -> Unit) {
                 .weight(1f)
                 .height(80.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFACD4D5)
+                containerColor = DarkMoss
             )
         ) {
             Box(
@@ -232,12 +243,18 @@ fun InfoCardsRow(onClick: () -> Unit) {
                 Column (
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("Hit")
+                    Text("Hit",
+                        style = TextStyle(
+                            fontSize = 18.sp
+                        ),
+                        color = Color.White
+                    )
                     Spacer(modifier = Modifier.height(10.dp))
                     Icon(
                         imageVector = Icons.Default.BackHand,
                         contentDescription = null,
                         modifier = Modifier.size(25.dp),
+                        tint = Color.White
                     )
                 }
             }
@@ -248,7 +265,7 @@ fun InfoCardsRow(onClick: () -> Unit) {
                 .weight(1f)
                 .height(80.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFACD4D5)
+                containerColor = DarkMoss
             )
         ) {
             Box(
@@ -258,7 +275,12 @@ fun InfoCardsRow(onClick: () -> Unit) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("Color")
+                    Text("Color",
+                        style = TextStyle(
+                            fontSize = 18.sp
+                        ),
+                        color = Color.White
+                    )
                     Spacer(modifier = Modifier.height(8.dp))
                     Row(
                         verticalAlignment = Alignment.CenterVertically
@@ -292,7 +314,7 @@ fun InfoCardsRow(onClick: () -> Unit) {
                 .weight(1f)
                 .height(80.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFACD4D5)
+                containerColor = DarkMoss
             )
         ) {
             Box(
@@ -302,14 +324,20 @@ fun InfoCardsRow(onClick: () -> Unit) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("Number")
+                    Text("Number",
+                        style = TextStyle(
+                            fontSize = 18.sp
+                        ),
+                        color = Color.White
+                    )
                     Spacer(modifier = Modifier.height(10.dp))
                     Text(
                         text = "2",
                         style = TextStyle(
-                            fontSize = 20.sp,
+                            fontSize = 22.sp,
                             fontWeight = FontWeight.Bold
-                        )
+                        ),
+                        color = Color.White
                     )
                 }
             }

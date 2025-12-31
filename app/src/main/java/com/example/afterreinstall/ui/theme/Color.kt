@@ -14,3 +14,6 @@ val FernGreen = Color(0xFF477023)
 val DarkMoss = Color(0xFF2D531A)
 val PakistanGreen = Color(0xFF0D330E)
 val DarkGreen = Color(0xFF071E07)
+
+val ChoosedGreen = Color(0xFF00FF11)
+val DontPick = Color(0xFFFF0000)

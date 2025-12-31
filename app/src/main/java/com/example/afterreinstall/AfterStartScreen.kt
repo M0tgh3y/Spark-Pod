@@ -13,9 +13,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -32,6 +34,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.afterreinstall.ui.theme.DarkGreen
+import com.example.afterreinstall.ui.theme.DarkMoss
 import com.example.afterreinstall.ui.theme.FernGreen
 import com.example.afterreinstall.ui.theme.PakistanGreen
 import com.example.afterreinstall.ui.theme.ResedaGreen
@@ -54,13 +57,21 @@ fun AfterStartScreen(navController: NavHostController) {
                     .background(ResedaGreen,
                         shape = RoundedCornerShape(24.dp))
                     .weight(1f)
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
             ) {
                 Column(
                     modifier = Modifier
-                        .padding(25.dp)
+                        .padding(25.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
                 ) {
-                    Text("Hello")
+                    Text("Hello",
+                        style = TextStyle(
+                            fontSize = 20.sp,
+                        ),
+                        color = Color.White
+                    )
                 }
             }
 
@@ -76,9 +87,11 @@ fun AfterStartScreen(navController: NavHostController) {
             ) {
                 Column(
                     modifier = Modifier
-                        .padding(25.dp),
+                        .padding(25.dp)
+                        .verticalScroll(rememberScrollState()),
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
+                    verticalArrangement = Arrangement.Center,
+
                 ) {
                     Box(
                         modifier = Modifier
@@ -115,7 +128,7 @@ fun AfterStartScreen(navController: NavHostController) {
                                     .width(80.dp)
                             ) {
                                 Icon(
-                                    imageVector = Icons.Filled.PlayArrow,
+                                    imageVector = Icons.Filled.Pause,
                                     contentDescription = "Start",
                                     tint = Color.White,
                                     modifier = Modifier.size(60.dp)
@@ -150,7 +163,7 @@ fun AfterStartScreen(navController: NavHostController) {
                     Box(
                         contentAlignment = Alignment.Center,
                         modifier = Modifier
-                            .background(FernGreen, shape = RoundedCornerShape(24.dp))
+                            .background(DarkMoss, shape = RoundedCornerShape(24.dp))
                             .fillMaxWidth()
                     ) {
                         Column(
@@ -172,7 +185,7 @@ fun AfterStartScreen(navController: NavHostController) {
                                 Box(
                                     modifier = Modifier
                                         .weight(1f)
-                                        .background(DarkGreen, shape = RoundedCornerShape(24.dp))
+                                        .background(DarkGreen, shape = RoundedCornerShape(15.dp))
                                         .padding(10.dp),
                                     contentAlignment = Alignment.Center
                                 ) {
@@ -188,7 +201,7 @@ fun AfterStartScreen(navController: NavHostController) {
                                 Box(
                                     modifier = Modifier
                                         .weight(1f)
-                                        .background(DarkGreen, shape = RoundedCornerShape(24.dp))
+                                        .background(DarkGreen, shape = RoundedCornerShape(15.dp))
                                         .padding(10.dp),
                                     contentAlignment = Alignment.Center
                                 ) {
@@ -208,7 +221,7 @@ fun AfterStartScreen(navController: NavHostController) {
                     Box(
                         contentAlignment = Alignment.Center,
                         modifier = Modifier
-                            .background(FernGreen, shape = RoundedCornerShape(24.dp))
+                            .background(DarkMoss, shape = RoundedCornerShape(24.dp))
                             .fillMaxWidth()
                     ) {
                         Column(
@@ -230,7 +243,7 @@ fun AfterStartScreen(navController: NavHostController) {
                                 Box(
                                     modifier = Modifier
                                         .weight(1f)
-                                        .background(DarkGreen, shape = RoundedCornerShape(24.dp))
+                                        .background(DarkGreen, shape = RoundedCornerShape(15.dp))
                                         .padding(10.dp),
                                     contentAlignment = Alignment.Center
                                 ) {
@@ -246,7 +259,7 @@ fun AfterStartScreen(navController: NavHostController) {
                                 Box(
                                     modifier = Modifier
                                         .weight(1f)
-                                        .background(DarkGreen, shape = RoundedCornerShape(24.dp))
+                                        .background(DarkGreen, shape = RoundedCornerShape(15.dp))
                                         .padding(10.dp),
                                     contentAlignment = Alignment.Center
                                 ) {
